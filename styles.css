@@ -1,22 +1,41 @@
 body {
-    margin: 0;
-  }
+  margin: 0;
+}
 
-  .hidden {
-    display: none !important;
-  }
+.hidden {
+  display: none !important;
+}
 
-  h1 {
-    color: white;
-    font-size: 64px;
-  }
+h1 {
+  color: white;
+  font-size: 64px;
+}
 
-  .winner {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 1;
-    height: 100vh;
-    width: 100vw;
-  }
+.winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ffffff;
+  border-radius: 0.12em;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+button:hover {
+  color: #000000;
+  background-color: grey;
+}

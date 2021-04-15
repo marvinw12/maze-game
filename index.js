@@ -226,3 +226,9 @@ Events.on(engine, "collisionStart", (event) => {
     }
   });
 });
+
+//restart
+const restartButton = document.getElementById('restart')
+restartButton.addEventListener('click', () =>{
+  document.location.href = '';
+})
