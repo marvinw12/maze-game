@@ -22,16 +22,16 @@ Runner.run(Runner.create(), engine);
 
 // Walls
 const walls = [
-  Bodies.rectangle(width / 2, 0, width, 40, { isStatic: true }),
-  Bodies.rectangle(width / 2, height, width, 40, { isStatic: true }),
-  Bodies.rectangle(0, height / 2, 40, height, { isStatic: true }),
-  Bodies.rectangle(width, height / 2, 40, height, { isStatic: true })
+  Bodies.rectangle(width / 2, 0, width, 2, { isStatic: true }),
+  Bodies.rectangle(width / 2, height, width, 2, { isStatic: true }),
+  Bodies.rectangle(0, height / 2, 2, height, { isStatic: true }),
+  Bodies.rectangle(width, height / 2, 2, height, { isStatic: true }),
 ];
 World.add(world, walls);
 
 // Maze generation
 
-const shuffle = arr => {
+const shuffle = (arr) => {
   let counter = arr.length;
 
   while (counter > 0) {
@@ -73,10 +73,10 @@ const stepThroughCell = (row, column) => {
 
   // Assemble randomly-ordered list of neighbors
   const neighbors = shuffle([
-    [row - 1, column, 'up'],
-    [row, column + 1, 'right'],
-    [row + 1, column, 'down'],
-    [row, column - 1, 'left']
+    [row - 1, column, "up"],
+    [row, column + 1, "right"],
+    [row + 1, column, "down"],
+    [row, column - 1, "left"],
   ]);
   // For each neighbor....
   for (let neighbor of neighbors) {
@@ -98,13 +98,13 @@ const stepThroughCell = (row, column) => {
     }
 
     // Remove a wall from either horizontals or verticals
-    if (direction === 'left') {
+    if (direction === "left") {
       verticals[row][column - 1] = true;
-    } else if (direction === 'right') {
+    } else if (direction === "right") {
       verticals[row][column] = true;
-    } else if (direction === 'up') {
+    } else if (direction === "up") {
       horizontals[row - 1][column] = true;
-    } else if (direction === 'down') {
+    } else if (direction === "down") {
       horizontals[row][column] = true;
     }
 
@@ -126,7 +126,7 @@ horizontals.forEach((row, rowIndex) => {
       unitLength,
       5,
       {
-        isStatic: true
+        isStatic: true,
       }
     );
     World.add(world, wall);
@@ -145,9 +145,30 @@ verticals.forEach((row, rowIndex) => {
       5,
       unitLength,
       {
-        isStatic: true
+        isStatic: true,
       }
     );
     World.add(world, wall);
   });
 });
+
+const goal = Bodies.rectangle(
+  width - unitLength / 2,
+  height - unitLength / 2,
+  unitLength * 0.7,
+  unitLength * 0.7,
+  {
+    isStatic: true,
+  }
+);
+
+World.add(world, goal);
+
+//Ball
+
+const ball = Bodies.circle(
+  unitLength / 2,
+  unitLength / 2,
+  unitLength / 4,
+);
+World.add(world, ball)
