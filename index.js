@@ -104,9 +104,18 @@ const recurse = (row, column) => {
     recurse(nextRow, nextColumn);
   };
 
+  
+
   // visit that next cell
 };
 
-// recurse(1, 1);
+horizontals.forEach((row) => {
+  row.forEach((open) => {
+    if(open) {
+      return;
+    }
+    const wall = Bodies.rectangle();
+  });
+});
 
 
