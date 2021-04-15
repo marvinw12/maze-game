@@ -100,11 +100,13 @@ const recurse = (row, column) => {
     } else if(direction === ' down'){
       horizontals[row][column] = true;
     }
+
+    recurse(nextRow, nextColumn);
   };
 
   // visit that next cell
 };
 
-recurse(1, 1);
+// recurse(1, 1);
 
 
