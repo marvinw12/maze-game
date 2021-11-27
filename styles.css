@@ -15,6 +15,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   position: absolute;
   z-index: 1;
   height: 100vh;
@@ -24,7 +25,6 @@ h1 {
 button {
   display: flex;
   justify-content: center;
-  position: relative;
   padding: 0.35em 1.2em;
   border: 0.1em solid #ffffff;
   border-radius: 0.12em;
